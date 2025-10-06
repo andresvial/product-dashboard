@@ -1,6 +1,19 @@
-import { Table, TableHead, TableHeader, TableRow, TableBody, TableCell } from '../packages/ui';
+import { DataTable, Column } from '../packages/ui';
 
-const dummyData = [
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  country: string;
+  status: string;
+}
+
+const dummyData: User[] = [
   {
     id: 1,
     name: 'John Doe',
@@ -63,6 +76,17 @@ const dummyData = [
   },
 ];
 
+const columns: Column<User>[] = [
+  { key: 'name', header: 'Name' },
+  { key: 'email', header: 'Email' },
+  { key: 'phone', header: 'Phone' },
+  { key: 'address', header: 'Address' },
+  { key: 'city', header: 'City' },
+  { key: 'state', header: 'State' },
+  { key: 'zip', header: 'Zip' },
+  { key: 'country', header: 'Country' },
+];
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -71,34 +95,12 @@ export default function Home() {
 
         <div className="bg-white rounded-lg shadow-sm border">
           <div className="p-6">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Email</TableHead>
-                  <TableHead>Phone</TableHead>
-                  <TableHead>Address</TableHead>
-                  <TableHead>City</TableHead>
-                  <TableHead>State</TableHead>
-                  <TableHead>Zip</TableHead>
-                  <TableHead>Country</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {dummyData.map((user) => (
-                  <TableRow key={user.id}>
-                    <TableCell className="font-medium">{user.name}</TableCell>
-                    <TableCell>{user.email}</TableCell>
-                    <TableCell>{user.phone}</TableCell>
-                    <TableCell>{user.address}</TableCell>
-                    <TableCell>{user.city}</TableCell>
-                    <TableCell>{user.state}</TableCell>
-                    <TableCell>{user.zip}</TableCell>
-                    <TableCell>{user.country}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+            <DataTable
+              data={dummyData}
+              columns={columns}
+              pageSize={2}
+              emptyMessage="No products found"
+            />
           </div>
         </div>
       </div>
