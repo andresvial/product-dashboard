@@ -11,7 +11,6 @@ import {
   PaginationEllipsis,
 } from './pagination';
 import { cn } from '../lib/utils';
-import { useState } from 'react';
 
 export interface Column<T> {
   key: keyof T;
@@ -26,6 +25,8 @@ export interface DataTableProps<T> {
   pageSize?: number;
   className?: string;
   emptyMessage?: string;
+  currentPage?: number;
+  onPageChange?: (page: number) => void;
 }
 
 export function DataTable<T>({
@@ -34,16 +35,18 @@ export function DataTable<T>({
   pageSize = 10,
   className,
   emptyMessage = 'No data available',
+  currentPage = 1,
+  onPageChange,
 }: DataTableProps<T>) {
-  const [currentPage, setCurrentPage] = useState(1);
-
   const totalPages = Math.ceil(data.length / pageSize);
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
   const currentData = data.slice(startIndex, endIndex);
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page);
+    if (onPageChange) {
+      onPageChange(page);
+    }
   };
 
   const renderPaginationItems = () => {
