@@ -32,8 +32,6 @@ export class DummyJsonApiClient {
 
     const data = (await response.json()) as ExternalProductsResponse;
 
-    console.log(data);
-
     const products = data.products.map(productMapper);
 
     return products;
