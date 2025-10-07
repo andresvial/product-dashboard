@@ -1,6 +1,6 @@
 import { Dashboard } from './_components/dashboard';
 import ProductTable from './_components/product-table';
-import { listProductsFetcher } from './_fetchers/list-products.fetchers';
+import { listProductsFetcher } from './_fetchers/list-products.fetcher';
 
 export default async function Home() {
   // TODO: Obtain parameters from the URL and use it to do a paginated request

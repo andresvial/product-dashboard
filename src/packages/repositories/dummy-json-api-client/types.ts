@@ -1,5 +1,9 @@
-export interface ExternalProductsResponse {
+export interface ListExternalProductsResponse {
   products: ExternalProduct[];
+}
+
+export interface CountExternalProductsResponse {
+  total: number;
 }
 
 export interface ExternalProduct {

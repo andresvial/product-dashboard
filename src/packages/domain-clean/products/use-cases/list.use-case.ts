@@ -2,6 +2,7 @@ import { DummyJsonApiClient } from '@/packages/repositories/dummy-json-api-clien
 
 interface ListProductsUseCaseFilters {
   category?: string;
+  limit?: number;
 }
 
 export const listProductsUseCase = async (filters: ListProductsUseCaseFilters) => {
