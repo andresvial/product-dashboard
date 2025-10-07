@@ -24,9 +24,16 @@ export class DummyJsonApiClient {
     return response;
   };
 
-  listProducts = async () => {
+  listProducts = async (filters: { category?: string }) => {
+    const { category } = filters;
+
+    let path = 'products';
+    if (category) {
+      path += `/category/${category}`;
+    }
+
     const response = await this.sendRequest({
-      path: 'products',
+      path,
       method: 'GET',
     });
 

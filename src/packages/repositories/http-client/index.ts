@@ -1,4 +1,4 @@
-import { SendRequestArgs } from "./types";
+import { SendRequestArgs } from './types';
 
 export class HttpClientRepository {
   private baseUrl;
@@ -29,9 +29,7 @@ export class HttpClientRepository {
       }
 
       const errorMessage =
-        typeof errorResponse === "object"
-          ? JSON.stringify(errorResponse)
-          : errorResponse;
+        typeof errorResponse === 'object' ? JSON.stringify(errorResponse) : errorResponse;
       throw new Error(`Failed to send request to ${url}: ${errorMessage}`);
     }
 
