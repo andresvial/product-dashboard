@@ -7,6 +7,10 @@ export const productMapper = (externalProduct: ExternalProduct): Product => {
     title: externalProduct.title,
     price: externalProduct.price,
     category: externalProduct.category,
-    imageUrl: externalProduct.image,
+    thumbnailUrl: externalProduct.thumbnail,
+    description: externalProduct.description,
+    stock: externalProduct.stock,
+    rating: externalProduct.rating,
+    brand: externalProduct.brand,
   };
 };

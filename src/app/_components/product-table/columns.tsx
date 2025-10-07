@@ -1,8 +1,8 @@
 import { Product } from '@/packages/domain-clean/products/product.entity';
-import { Column } from '@/packages/ui';
+import { Column, Button } from '@/packages/ui';
 import { priceFormatter, capitalizeFirstLetter } from '@/packages/strings';
 
-export const columns: Column<Product>[] = [
+export const createColumns = (onDetailsClick: (product: Product) => void): Column<Product>[] => [
   { key: 'title', header: 'Title' },
   {
     key: 'category',
@@ -14,5 +14,14 @@ export const columns: Column<Product>[] = [
     header: 'Price',
     cell: (product) => priceFormatter(product.price),
   },
-  { key: 'imageUrl', header: 'Image' },
+  { key: 'thumbnailUrl', header: 'Image' },
+  {
+    key: 'id',
+    header: 'Actions',
+    cell: (product) => (
+      <Button variant="outline" size="sm" onClick={() => onDetailsClick(product)}>
+        Details
+      </Button>
+    ),
+  },
 ];

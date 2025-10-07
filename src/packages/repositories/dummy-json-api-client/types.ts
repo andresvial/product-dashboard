@@ -11,5 +11,9 @@ export interface ExternalProduct {
   title: string;
   price: number;
   category: string;
-  image: string;
+  thumbnail: string;
+  description: string;
+  stock: number;
+  rating: number;
+  brand: string;
 }
