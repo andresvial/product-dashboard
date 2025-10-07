@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Dashboard } from './_components/dashboard';
 import ProductTable from './_components/product-table';
 import { listProductsFetcher } from './_fetchers/list-products.fetcher';
@@ -13,7 +14,9 @@ export default async function Home() {
 
         <div className="flex flex-col gap-4">
           <Dashboard />
-          <ProductTable products={products} />
+          <Suspense fallback={<div>Loading products...</div>}>
+            <ProductTable products={products} />
+          </Suspense>
         </div>
       </div>
     </div>
