@@ -20,4 +20,6 @@ jobs:
         run: npm i
 
       - name: Build
+        env:
+          DUMMY_JSON_API_CLIENT_BASE_URL: ${{ vars.DUMMY_JSON_API_CLIENT_BASE_URL }}
         run: npm run build
