@@ -1,4 +1,4 @@
-name: Lint
+name: Build
 on: [pull_request]
 
 jobs:
@@ -19,6 +19,5 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: ESLint
-        run: |
-          npm run lint
+      - name: Build
+        run: npm run build
