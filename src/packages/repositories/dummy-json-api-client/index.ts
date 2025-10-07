@@ -25,7 +25,7 @@ export class DummyJsonApiClient {
   };
 
   listProducts = async (filters: { category?: string }) => {
-    const { category } = filters;
+    const { category } = filters || {};
 
     let path = 'products';
     if (category) {
