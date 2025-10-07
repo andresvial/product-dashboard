@@ -28,6 +28,12 @@ export default function ProductDetailsSheet({
           <SheetDescription>Detailed information about {product.title}</SheetDescription>
         </SheetHeader>
 
+        <div className="flex justify-center">
+          <div className="relative w-48 h-48 rounded-lg overflow-hidden border">
+            <Image src={product.thumbnailUrl} alt={product.title} fill className="object-cover" />
+          </div>
+        </div>
+
         <div className="space-y-6 p-4 overflow-y-auto">
           <div className="space-y-4">
             <div>
@@ -69,12 +75,6 @@ export default function ProductDetailsSheet({
                 <span className="font-medium text-gray-700">Description:</span>
                 <p className="text-sm text-gray-600 leading-relaxed mt-3">{product.description}</p>
               </div>
-            </div>
-          </div>
-
-          <div className="flex justify-center">
-            <div className="relative w-48 h-48 rounded-lg overflow-hidden border">
-              <Image src={product.thumbnailUrl} alt={product.title} fill className="object-cover" />
             </div>
           </div>
         </div>
