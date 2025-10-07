@@ -4,7 +4,6 @@ import { getAveragePriceFetcher } from '@/app/_fetchers/get-average-price.fetche
 // NOTE: I duplicated the card as placeholders and to make the page looks stylish.
 
 export const Dashboard = async () => {
-  ////////////pasar a ftecher!!!!!!!!
   const averagePrice = await getAveragePriceFetcher();
 
   return (
