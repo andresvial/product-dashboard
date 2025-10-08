@@ -56,6 +56,8 @@ In terms on the layout of the page the stakeholders will see, I decided to use c
 
 If a stakeholder wants to get more info to make their own conclusions about the metrics, they can then go to the table and check the details of the products. For this, I decided to use a Drawer (Sheet in Shadcn) for the details of each product, so the user can quickly jump between products without having a horrible UX experience changing pages back and forth.
 
+Also, to avoid showing every single product in the table, I decided to use a pagination component from Shadcn UI to show 10 at a time.
+
 ## Current Limitations
 
 - Although the queries are done on the server side and the query params are set in the URL of the page, I didn't have time to implement the pagination for the query to list products on the server side. This means that the page list all products and then paginate it on the client side (very bad). I was really
