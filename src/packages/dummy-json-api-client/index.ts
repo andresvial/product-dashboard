@@ -24,8 +24,8 @@ export class DummyJsonApiClient {
     return response;
   };
 
-  listProducts = async (filters: { category?: string; limit?: number }) => {
-    const { category, limit } = filters || {};
+  listProducts = async (filters: { category?: string; limit?: number; skip?: number }) => {
+    const { category, limit, skip } = filters || {};
 
     let path = 'products';
 
@@ -37,6 +37,10 @@ export class DummyJsonApiClient {
 
     if (limit !== undefined) {
       path += `limit=${limit}`;
+    }
+
+    if (skip !== undefined) {
+      path += `&skip=${skip}`;
     }
 
     const response = await this.sendRequest({

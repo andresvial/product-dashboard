@@ -1,4 +1,4 @@
-import { DummyJsonApiClient } from '@/packages/repositories/dummy-json-api-client';
+import { DummyJsonApiClient } from '@/packages/dummy-json-api-client';
 
 export const getAveragePriceUseCase = async () => {
   const dummyJsonApiClient = new DummyJsonApiClient();
