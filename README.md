@@ -41,7 +41,7 @@ This includes general UI components, custom hooks, the external Dummy API, so on
 
 Thinking in maintainability, I have to make a special point about the `use cases` and the `entities` on the `domain-clean` folder:
 
-When fetching the products from the external API, the first thing to do before working with the result in the rest of the app is to map the incoming data into the Product Entity. This allows the app to only work with the Product Entity and not with the external API data, so if the external API changes, the app will still work with the correct data by changing the mapper. Perhaps its a little excessive to do this on a single entity, but the idea is for it be scalable by making new entities in the `domain-clean` folder.
+When fetching the products from the external API, the first thing to do before working with the result in the rest of the app is to map the incoming data into the Product Entity. This allows the app to only work with the Product Entity and not with the external API data, so if the external API changes, the app will still work with the correct data by changing the mapper. Perhaps its a little excessive to do this on a single entity, but the idea is for it be scalable by making new entities in the `domain-clean` folder, or by adding new attributes to the existing mapper if more attributes for Product are needed.
 
 The same idea is applied to the `use cases`, which are the ones that contain the business logic of the app (for example, calculating the average price of the products). This use-cases are always within the entity folder that make sense to them (in this case, the `products` entity). The idea also is that the `fetchers` found in the app can reutilize the use cases from the `domain-clean` folder.
 
