@@ -56,7 +56,7 @@ In terms on the layout of the page the stakeholders will see, I decided to use c
 
 If a stakeholder wants to get more info to make their own conclusions about the metrics, they can then go to the table and check the details of the products. For this, I decided to use a Drawer (Sheet in Shadcn) for the details of each product, so the user can quickly jump between products without having a horrible UX experience changing pages back and forth.
 
-Also, to avoid showing every single product in the table, I decided to use a pagination component from Shadcn UI to show 10 at a time.
+Also, to avoid showing every single product in the table and having a very long page, I decided to use a pagination component from Shadcn UI to show 10 at a time.
 
 ## Current Limitations
 
