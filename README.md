@@ -48,7 +48,7 @@ The same idea is applied to the `use cases`, which are the ones that contain the
 
 Regarding the UI, I chose to use Shadcn UI because its a library easy to install, very customizable and made with Next.js in mind.
 
-All queries are done on the server side to improve the performance of the app thanks to the query params on the URL. By setting the query params on the URL with a custom hook when changing pages, the page obtains the query params and passes them to the `listProductsFetcher()`, only fetching the products for the page that the user is on.
+All queries are done on the server side to improve the performance of the app thanks to the query params on the URL. By setting the query params on the URL with a custom hook when changing pages, the page obtains the query params and passes them to the table to set the page, although currently the pagination is done on the client side (more on this on the limitations section), but that was intention of using the query params.
 
 ### Product decisions
 
@@ -58,10 +58,14 @@ If a stakeholder wants to get more info to make their own conclusions about the 
 
 ## Current Limitations
 
-The exposed endpoint is not paginated, it returns the first 30 products (the default set by the external API).
+- Although the queries are done on the server side and the query params are set in the URL of the page, I didn't have time to implement the pagination for the query to list products on the server side. This means that the page list all products and then paginate it on the client side (very bad). I was really
+  on the last steps to accomplish this, I already set the page param on the URL, so its only a matter of getting that parameters on the server page and passing them to the `listProductsFetcher()` function, calculating the skip, and passing them to the list products function in the external API, but I decided to prioritize other features as time was running out and then go back to this.
+
+- The exposed endpoint is not paginated, it returns the first 30 products (the default set by the external API).
 
 ## What to improve with more time
 
+- Implement the pagination for the server side query to list products used for the table.
 - Implement the pagination for the exposed endpoint.
 - Generalize the `ProductDetailsSheet` component to be reused in other pages and with other entities. The Same for the card withe the metric.
 - Optional tasks: search bar for the table, testing, logging, etc.
